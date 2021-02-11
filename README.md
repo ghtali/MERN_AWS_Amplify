@@ -1,4 +1,6 @@
-# Getting Started with Create React App
+# Getting Started with Amplify React App
+
+# This is a test version, please be aware of potential vulnarabilites before you use this repo.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
