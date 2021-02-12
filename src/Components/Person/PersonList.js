@@ -8,7 +8,7 @@ const PersonList = (props) => {
     <div>
       <ul className="collection with-header">
         <li className="collection with-header">
-          <h4>Players</h4>
+          <h4>List of Employees</h4>
         </li>
         {props.persons.map((item) => (
           <a href="#!" className="collection-item" key={item._id}
@@ -19,5 +19,5 @@ const PersonList = (props) => {
       </ul>
     </div>
   );
-};
+}
 export default PersonList;

@@ -6,7 +6,7 @@ import PersonSingle from './Person/PersonSingle';
 import PersonForm from './Person/PersonForm';
 
 //Installing axios, that helps to call our API with simple syntax
-
+//we're going to bind our function'updateCurrentPerson' to our class
 class App extends React.Component {
   constructor (props) {
     super (props);
@@ -14,30 +14,33 @@ class App extends React.Component {
       persons: [],
       currentPerson: {},
     };
-    //we're going to bind our function'updateCurrentPerson' to our class
     this.updateCurrentPerson = this.updateCurrentPerson.bind (this);
   }
 
+//after we get result from API then we're going to update our persons
   componentDidMount () {
-    const url = 'http://localhost:4000/persons';
-    axios
-      .get (url)
-      //after we get result from API then we're going to update our persons
+    const url = 'http://localhost:8000/persons';
+    axios.get (url)
       .then (Response => {
         this.setState ({
-          persons: Response.data,
-        });
+          persons: Response.data
+        })
       })
-      .catch (error => {
-        console.log (error);
-      });
-  }
+      .catch(error => {
+        if (!error.response) {
+            // network error
+            this.errorStatus = 'Error: Network Error';
+        } else {
+            this.errorStatus = error.response.data.message;
+        }
+      })
+  };
 
   //we call a function to update our current person when we click on current person
   updateCurrentPerson (item) {
     this.setState ({
       currentPerson: item,
-    });
+    })
   }
 
   render () {
@@ -57,8 +60,7 @@ class App extends React.Component {
         </div>
         <div className="row">
           <div className="col s12"><PersonForm /></div>
-        </div>;
-
+        </div>
       </div>
     );
   }
