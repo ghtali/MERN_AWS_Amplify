@@ -31,27 +31,27 @@ class PersonForm extends React.Component {
             </div>
             <div className="input-field col s6">
               <input id="lastName" ref="lastName" type="text" />
-              <label htmlFor="lastName">First Name</label>
-            </div>;
+              <label htmlFor="lastName">Last Name</label>
+            </div>
           </div>
           <div className="row">
             <div className="input-field col s6">
               <input id="phone" ref="phone" type="text" />
-              <label htmlFor="phone">First Name</label>
+              <label htmlFor="phone">Phone</label>
             </div>
             <div className="input-field col s6">
               <input id="email" ref="email" type="text" />
-              <label htmlFor="email">First Name</label>
-            </div>;
-          </div>;
+              <label htmlFor="email">Email</label>
+            </div>
+          </div>
           <button
-            class="btn waves-effect waves-light"
+            className="btn waves-effect waves-light"
             type="submit"
             name="action"
           >
             Add Person
-            <i class="material-icons right">send</i>
-          </button>;
+            <i className="material-icons right">send</i>
+          </button>
         </form>
       </div>
     );
