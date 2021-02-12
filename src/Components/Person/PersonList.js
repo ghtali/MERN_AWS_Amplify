@@ -3,10 +3,20 @@ import React from 'react';
 //created stateless function component
 //Listing our persons component
 //to see list of all persons
-const PersonList = () => {
+const PersonList = (props) => {
   return (
     <div>
-      PersonList
+      <ul className="collection with-header">
+        <li className="collection with-header">
+          <h4>Players</h4>
+        </li>
+        {props.persons.map((item) => (
+          <a href="#!" className="collection-item" key={item._id}
+          onClick={props.updateCurrentPerson.bind(this,item)}>
+          {item.firstName} {item.lastName}
+          </a>
+        ))}
+      </ul>
     </div>
   );
 };
