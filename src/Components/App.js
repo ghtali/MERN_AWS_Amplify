@@ -17,37 +17,48 @@ class App extends React.Component {
     this.updateCurrentPerson = this.updateCurrentPerson.bind (this);
   }
 
-//after we get result from API then we're going to update our persons
+  //after we get result from API then we're going to update our persons
   componentDidMount () {
     const url = 'http://localhost:8000/persons';
-    axios.get (url)
+    axios
+      .get (url)
       .then (Response => {
         this.setState ({
-          persons: Response.data
-        })
+          persons: Response.data,
+        });
       })
-      .catch(error => {
+      .catch (error => {
         if (!error.response) {
-            // network error
-            this.errorStatus = 'Error: Network Error';
+          // network error
+          this.errorStatus = 'Error: Network Error';
         } else {
-            this.errorStatus = error.response.data.message;
+          this.errorStatus = error.response.data.message;
         }
-      })
-  };
+      });
+  }
 
   //we call a function to update our current person when we click on current person
   updateCurrentPerson (item) {
     this.setState ({
       currentPerson: item,
-    })
+    });
   }
-
+  //Adding Materlize Navbar
   render () {
     return (
       <div className="container-fluid">
         <div className="row">
-          <div className="col s12">Menu</div>
+          <nav>
+            <div class="nav-wrapper">
+              <a href="#" class="brand-logo">Logo</a>
+              <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="sass.html">Sass</a></li>
+                <li><a href="badges.html">Components</a></li>
+                <li><a href="collapsible.html">JavaScript</a></li>
+              </ul>
+            </div>
+          </nav>;
+
         </div>
         <div className="row">
           <div className="col s3">
